@@ -1,0 +1,29 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+{% extends "linkweb.html" %}
+{% block content %}
+<div class="form">
+  <form action="/" method="POST" enctype="=" multipart/form-data"">
+    <div>
+      <input type="text" id="name" name="name" placeholder="ここにURLを入力してください">
+    </div>
+<br />
+<div class="comb">
+  <select name="convert_file">
+    <option value="null" disabled selected> ファイル種類を選択して下さい </option>
+    <option value="mp4">mp4</option>
+    <option value="mp3">mp3</option>
+    <option value="m4a">m4a</option>
+    <option value="wav">wav</option>
+    <option value="webm">webm</option>
+    <option value="mkv">mkv</option>
+  </select>
+</div>
+<br /><br />
+  <div>
+    <div class="submit">
+      <input type="submit" value="ここをクリックすると変換開始">
+    </div>
+  </div>
+  </form>
+</div>
+{% endblock %}

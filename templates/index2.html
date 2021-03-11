@@ -1,0 +1,22 @@
+{% extends "downladed.html" %}
+{% block content %}
+<div class="form2">
+  <form action="/downloade" enctype="=" method="GET" multipart/form-data"">
+    <p>タイトルは、【{{ video_title }}】です。</p>
+    <p>file名:{{file}}</p>
+    <a href="/downloade/{{filename}}">
+      <font size="4">ここをクリックするとダウンロードされます。</font>
+    </a>
+  <br></br>
+  <div class="center_iframe">
+    <iframe width="850" height="450" src="https://www.youtube.com/embed/{{yt_video_ID}}" frameborder="0" allow="accelerometer; autoplay;
+    clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  </form>
+  <br></br>
+  <form action="/downloade/delfile/" enctype="=" method="GET" multipart/form-data"">
+    <p>同じファイルがダウンロードされる場合は、下のボタンをクリックすることで一時的なファイルを消せます</p>
+    <input type="submit" value="削除">
+  </form>
+</div>
+{% endblock %}

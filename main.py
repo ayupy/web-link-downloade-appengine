@@ -20,11 +20,11 @@ def app_run():
         comb = request.form.get('convert_file')
         runydl = dl.link_web(name,comb)
 
-        if os.path.isdir('tmp'):
-            shutil.rmtree('tmp')
-            os.mkdir('tmp')
-        else:
-            os.mkdir('tmp')
+        # if os.path.isdir('tmp'):
+        #     shutil.rmtree('tmp')
+        #     os.mkdir('tmp')
+        # else:
+        #     os.mkdir('tmp')
 
         if name != "":
             #debug
@@ -53,7 +53,7 @@ def search_youtube_id(urls):
 def file_searches(file):
     # if file path is different in local and web
     # file_search = re.search(r'tmp\\(.*)',file)
-    sub_file_search = re.search(r'tmp/video/(.*)',file)
+    sub_file_search = re.search(r'/tmp/video/(.*)',file)
     nonetype = 'None'
     if sub_file_search is None:
         return nonetype
@@ -74,7 +74,7 @@ def error_html():
 @app.route('/downloade/')
 def app_down():
     # search ext file
-    ext_path = 'tmp/video/'
+    ext_path = '/tmp/video/'
     exts_list = ['*.webm', '*.mkv', '*.mp4', '*.mp3', '*.wav', '*.m4a']
     files_grabbed = []
     # keys is sorted var

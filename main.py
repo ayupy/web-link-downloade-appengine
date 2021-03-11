@@ -20,11 +20,11 @@ def app_run():
         comb = request.form.get('convert_file')
         runydl = dl.link_web(name,comb)
 
-        if os.path.isdir('tmp'):
-            shutil.rmtree('tmp')
-            os.mkdir('tmp')
+        if os.path.isdir('/tmp'):
+            shutil.rmtree('/tmp')
+            os.mkdir('/tmp')
         else:
-            os.mkdir('tmp')
+            os.mkdir('/tmp')
 
         if name != "":
             #debug

@@ -3,7 +3,7 @@ USER root
 WORKDIR /app
 
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 COPY . .
 RUN pip install -U pip 
@@ -13,6 +13,6 @@ RUN pip install --upgrade setuptools
 RUN apt-get update
 RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 RUN chmod a+rx /usr/local/bin/youtube-dl
-RUN apt-get ffmpeg
+RUN apt-get install ffmpeg
 
 ENTRYPOINT ["gunicorn", "-b", ":8080", "main:app"]

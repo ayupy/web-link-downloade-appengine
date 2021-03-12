@@ -39,7 +39,7 @@ def app_run():
         return render_template('index.html')
 
 def search_youtube_id(urls):
-    # print('hello',urls)
+    print('hello',urls)
     search_id = re.search(r'watch(.*)',urls)
     sample_id = "videoid"
     if search_id is None:
@@ -82,7 +82,7 @@ def app_down():
     for i in exts_list:
         files_grabbed.extend(glob.glob(ext_path+i))
     # debug
-    # print(files_grabbed)
+    print(files_grabbed)
     try:
         filename = files_grabbed[-1]
         file_name = pathlib.Path(files_grabbed[-1])

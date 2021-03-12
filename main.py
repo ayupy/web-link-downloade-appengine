@@ -39,7 +39,7 @@ def app_run():
         return render_template('index.html')
 
 def search_youtube_id(urls):
-    print('hello',urls)
+    # print('hello',urls)
     search_id = re.search(r'watch(.*)',urls)
     sample_id = "videoid"
     if search_id is None:
@@ -53,7 +53,7 @@ def search_youtube_id(urls):
 def file_searches(file):
     # if file path is different in local and web
     # file_search = re.search(r'tmp\\(.*)',file)
-    sub_file_search = re.search(r'/tmp/video/(.*)',file)
+    sub_file_search = re.search(r'tmp/video/(.*)',file)
     nonetype = 'None'
     if sub_file_search is None:
         return nonetype
@@ -74,7 +74,7 @@ def error_html():
 @app.route('/downloade/')
 def app_down():
     # search ext file
-    ext_path = '/tmp/video/'
+    ext_path = 'tmp/video/'
     exts_list = ['*.webm', '*.mkv', '*.mp4', '*.mp3', '*.wav', '*.m4a']
     files_grabbed = []
     # keys is sorted var
@@ -82,7 +82,7 @@ def app_down():
     for i in exts_list:
         files_grabbed.extend(glob.glob(ext_path+i))
     # debug
-    print(files_grabbed)
+    # print(files_grabbed)
     try:
         filename = files_grabbed[-1]
         file_name = pathlib.Path(files_grabbed[-1])

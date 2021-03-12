@@ -4,7 +4,7 @@ class link_web():
     def __init__(self,name,comb):
         self.outtmpl = '%(title)s.%(ext)s'
         # downlode file path
-        self.path = '/tmp/video/'
+        self.path = 'tmp/video/'
         # youtube-dl comand and options
         self.name = name
         self.comb = comb

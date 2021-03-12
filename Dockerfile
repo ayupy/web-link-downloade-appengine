@@ -1,18 +1,15 @@
-FROM gcr.io/google-appengine/python
+FROM python:3.8-slim-buster
 USER root
 
 RUN apt-get update
 RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 RUN chmod a+rx /usr/local/bin/youtube-dl
 
-RUN venv /newapp -p python3.9
+WORKDIR /app
 
-ENV VENV /newapp
-ENV PATH /newapp/Scripts/activate
+copy requirements.txt requirements.txt
+RUN pip3 install -r /app/requirements.txt
 
-ADD requirements.txt /app/requirements.txt
-RUN pip install -r /app/requirements.txt
-
-ADD . /app
+COPY . .
 
 CMD gunicorn -b :8080 main:app

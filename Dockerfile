@@ -8,9 +8,9 @@ RUN chmod a+rx /usr/local/bin/youtube-dl
 RUN venv /env -p python3.9
 
 ENV VIRTUAL_ENV /env
-ENV PATH /env/bin:$PATH
+ENV PATH /env/bin/activate
 
-ADD requirements.txt
-RUN pip install -r requirements.txt
+ADD requirements.txt /app/requirements.txt
+RUN pip install -r /app/requirements.txt
 
-CMD gunicorn -b :8080 main:app
+ADD . /app

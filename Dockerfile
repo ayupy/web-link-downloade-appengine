@@ -16,4 +16,4 @@ RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/yout
 RUN chmod a+rx /usr/local/bin/youtube-dl
 RUN apt-get install ffmpeg -y
 
-
+ENTRYPOINT ["gunicorn", "-c", "gunicorn.conf.py","-b",":8080","main:app"]

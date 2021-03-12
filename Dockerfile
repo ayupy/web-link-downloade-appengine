@@ -1,7 +1,7 @@
 FROM gcr.io/google-appengine/python
 
 RUN apt-get update
-
+RUN apt-get install python-virtualenv
 RUN venv /env -p python3.7
 
 ENV VIRTUAL_ENV /env

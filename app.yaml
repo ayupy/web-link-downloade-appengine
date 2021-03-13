@@ -3,4 +3,4 @@ env: flex
 entrypoint: gunicorn -b :8080 main:app
 runtime_config:
   python_version: 3
-service: web_linweb-link-downloade-appengine
+service: web-link-downloade-appengine

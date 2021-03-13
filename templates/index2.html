@@ -1,11 +1,11 @@
-{% extends "downladed.html" %}
+{% extends "downloade.html" %}
 {% block content %}
 <div class="form2">
   <form action="/downloade" enctype="=" method="GET" multipart/form-data"">
-    <p>タイトルは、【{{ video_title }}】です。</p>
-    <p>file名:{{file}}</p>
+    <p>title:【{{ video_title }}】</p>
+    <p>file name:{{file}}</p>
     <a href="/downloade/{{filename}}">
-      <font size="4">ここをクリックするとダウンロードされます。</font>
+      <font size="4">click downloade</font>
     </a>
   <br></br>
   <div class="center_iframe">
@@ -15,8 +15,10 @@
   </form>
   <br></br>
   <form action="/downloade/delfile/" enctype="=" method="GET" multipart/form-data"">
-    <p>同じファイルがダウンロードされる場合は、下のボタンをクリックすることで一時的なファイルを消せます</p>
-    <input type="submit" value="削除">
+    <p>remove file</p>
+    <div class="remove_submit">
+      <input type="submit" value="remove">
+    </div>
   </form>
 </div>
 {% endblock %}

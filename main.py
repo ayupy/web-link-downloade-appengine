@@ -1,3 +1,6 @@
+# Copyright (c) 2021 ayupy
+# This software is released under the MIT License, see LICENSE.
+
 from flask import Flask, render_template, request, url_for, redirect, \
     send_from_directory
 

@@ -1,16 +1,23 @@
+# Copyright (c) 2021 ayupy
+# This software is released under the MIT License, see LICENSE.
+
 import subprocess
 
 class link_web():
     def __init__(self,name,comb):
         self.outtmpl = '%(title)s.%(ext)s'
         # downlode file path
+        # if you change file path
         self.path = 'tmp/video/'
+
         # youtube-dl comand and options
         self.name = name
         self.comb = comb
         base_format = f'youtube-dl "{self.name}" -o "{self.path+self.outtmpl}"'
         audio = f'--extract-audio --audio-format'
         video = f'-f bestvideo+bestaudio --merge-output-format'
+
+        # youtube-dl video or audio only format
         self.audio_only = f'{base_format} {audio}'
         self.video = f'{base_format} {video}'
 
@@ -18,6 +25,7 @@ class link_web():
         self.select_comb()
 
     def downloading(self):
+         # run youtube-dl
         self.download()
 
     def select_comb(self):

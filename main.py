@@ -23,12 +23,6 @@ def app_run():
         comb = request.form.get('convert_file')
         runydl = dl.link_web(name,comb)
 
-        # if os.path.isdir('tmp'):
-        #     shutil.rmtree('tmp')
-        #     os.mkdir('tmp')
-        # else:
-        #     os.mkdir('tmp')
-
         if name != "":
             #debug
             # print(runydl.name)
@@ -43,6 +37,7 @@ def app_run():
 
 def search_youtube_id(urls):
     # print('hello',urls)
+
     search_id = re.search(r'watch(.*)',urls)
     sample_id = "videoid"
     if search_id is None:
@@ -50,21 +45,21 @@ def search_youtube_id(urls):
     else:
         result_ID = search_id.group(1)[3:]
         return result_ID
+
     # print(search_id.group(1))
     # print(search_id.group(1)[3:])
 
 def file_searches(file):
     # if file path is different in local and web
+    
+    # if use windows file search path,
     # file_search = re.search(r'tmp\\(.*)',file)
+
     sub_file_search = re.search(r'tmp/video/(.*)',file)
     nonetype = 'None'
     if sub_file_search is None:
         return nonetype
-    # print(file_search.group(1))
-    # else:
-    #     result_file = file_search.group(1)
-    #     print(result_file)
-    #     return result_file
+        
     else:
         sub_result_file = sub_file_search.group(1)
         return sub_result_file
@@ -84,8 +79,10 @@ def app_down():
     # keys=lambda f: os.stat(f).st_mtime
     for i in exts_list:
         files_grabbed.extend(glob.glob(ext_path+i))
+    
     # debug
     # print(files_grabbed)
+    
     try:
         filename = files_grabbed[-1]
         file_name = pathlib.Path(files_grabbed[-1])
@@ -104,7 +101,6 @@ def app_down():
 def del_file():
     shutil.rmtree('tmp')
     os.mkdir('tmp')
-    # os.remove(glob.glob('tmp/*.m4a'))
     return render_template('delfile.html')
 
 

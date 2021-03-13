@@ -1,3 +1,6 @@
+# Copyright (c) 2021 ayupy
+# This software is released under the MIT License, see LICENSE.
+
 FROM python:3.9
 USER root
 WORKDIR /app

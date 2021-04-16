@@ -85,17 +85,6 @@ web_link_downloader is default save file path ./tmp/video/
 if no tmp directory,make tmp directory in Current directory
 
 
-# web service
-if you don't have python program,you can visit my web service.
-
-web app site is google App engine
-
-if you use App engine,you need Dockerfile and app.yaml.
-
-here is site:https://web-link-downloade-appengine-dot-images-pro-30.df.r.appspot.com/
-
-japanese language site:https://images-pro-30.df.r.appspot.com/
-
 # LICENCE
 The source code is licensed MIT.
 
